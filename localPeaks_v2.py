@@ -30,14 +30,13 @@ def peaks(file, yLimit):
     f.close
 
 def main():
-    filename = os.sys.argv[1]
+    filePath = os.sys.argv[1]
+    head, tail = os.path.split(filePath)
     limit = os.sys.argv[2]
-    try:
-        if filename[-3:].upper() == 'ASC':
-            peaks(filename, limit)
-    except:
-        print('Nice try, file is not an ASC file type.')
-
+    if  tail[-3:].lower().endswith(('txt', 'asc')) is True:
+        peaks(filePath, limit)
+    else:
+        print('File is not a txt or asc file type.')
 
 if __name__ == '__main__':
     main()
